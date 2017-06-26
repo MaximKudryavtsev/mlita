@@ -7,10 +7,10 @@ using namespace std;
 
 bool Compare(int firstInside, int firstOutside, int secondInside, int secondOutside, int radiusCircle)
 {
-	if (((firstInside > secondInside) && (firstInside > secondOutside) && (firstInside < radiusCircle) &&
-		(firstOutside > secondInside) && (firstOutside > secondOutside) && (firstOutside < radiusCircle))
-		|| ((secondInside > firstInside) && (secondInside > firstOutside) && (secondInside < radiusCircle) &&
-		(secondOutside > firstInside) && (secondOutside > firstOutside) && secondOutside < radiusCircle)
+	if (((firstInside >= secondInside) && (firstInside >= secondOutside) && (firstInside <= radiusCircle) &&
+		(firstOutside >= secondInside) && (firstOutside >= secondOutside) && (firstOutside <= radiusCircle))
+		|| ((secondInside >= firstInside) && (secondInside >= firstOutside) && (secondInside <= radiusCircle) &&
+		(secondOutside >= firstInside) && (secondOutside >= firstOutside) && secondOutside <= radiusCircle)
 		)
 	{
 		return true;
@@ -35,11 +35,11 @@ int main()
 		input >> firstInside >> firstOutside >> secondInside >> secondOutside >> radiusCircle;
 		if (Compare(firstInside, firstOutside, secondInside, secondOutside, radiusCircle))
 		{
-			cout << "yes" << endl;
+			output << "Yes" << endl;
 		}
 		else
 		{
-			cout << "no" << endl;
+			output << "No" << endl;
 		}
 	}
 	
