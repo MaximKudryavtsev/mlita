@@ -7,14 +7,17 @@ using namespace std;
 
 bool Compare(int firstInside, int firstOutside, int secondInside, int secondOutside, int radiusCircle)
 {
-	if (((firstInside >= secondInside) && (firstInside >= secondOutside) && (firstInside <= radiusCircle) &&
-		(firstOutside >= secondInside) && (firstOutside >= secondOutside) && (firstOutside <= radiusCircle))
-		|| ((secondInside >= firstInside) && (secondInside >= firstOutside) && (secondInside <= radiusCircle) &&
-		(secondOutside >= firstInside) && (secondOutside >= firstOutside) && secondOutside <= radiusCircle) &&
-		(firstInside != firstOutside) && (secondInside != secondOutside)
-		)
+	if ((firstInside < firstOutside) && (secondInside < secondOutside))
 	{
-		return true;
+		if (((firstInside > secondInside) && (firstInside >= secondOutside) &&
+			(firstOutside >= secondInside) && (firstOutside > secondOutside) && (firstOutside <= radiusCircle)) ||
+			((secondInside > firstInside) && (secondInside >= firstOutside) &&
+			(secondOutside >= firstInside) && (secondOutside > firstOutside) && (secondOutside <= radiusCircle)) ||
+			((firstOutside + secondOutside) <= radiusCircle)
+			)
+		{
+			return true;
+		}
 	}
 	return false;
 }
@@ -32,7 +35,7 @@ int main()
 	input >> amount;
 	for (int i = 0; i < amount; i++)
 	{
-		input >> firstInside >> firstOutside >> secondInside >> secondOutside >> radiusCircle;
+		input >> firstOutside >> firstInside >> secondOutside >> secondInside >> radiusCircle;
 		if (Compare(firstInside, firstOutside, secondInside, secondOutside, radiusCircle))
 		{
 			output << "Yes" << endl;
