@@ -10,13 +10,13 @@ bool Compare(int firstInside, int firstOutside, int secondInside, int secondOuts
 	if (((firstInside >= secondInside) && (firstInside >= secondOutside) && (firstInside <= radiusCircle) &&
 		(firstOutside >= secondInside) && (firstOutside >= secondOutside) && (firstOutside <= radiusCircle))
 		|| ((secondInside >= firstInside) && (secondInside >= firstOutside) && (secondInside <= radiusCircle) &&
-		(secondOutside >= firstInside) && (secondOutside >= firstOutside) && secondOutside <= radiusCircle)
+		(secondOutside >= firstInside) && (secondOutside >= firstOutside) && secondOutside <= radiusCircle) &&
+		(firstInside != firstOutside) && (secondInside != secondOutside)
 		)
 	{
 		return true;
 	}
 	return false;
-
 }
 
 int main()
@@ -42,7 +42,5 @@ int main()
 			output << "No" << endl;
 		}
 	}
-	
-	
 }
 
