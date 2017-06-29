@@ -5,31 +5,28 @@
 
 using namespace std;
 
-long long getAmountRectangles(long long width, long long length)
+__int64 getAmountRectangles(__int64 a, __int64 b)
 {
-	long long counter = 1;
-	while (length != width)
+	__int64 counter = 0;
+	while (b != 0)
 	{
-		if (length > width)
+		if (a < b)
 		{
-			length = length - width;
+			swap(a, b);
 		}
-		else
-		{
-			width = width - length;
-		}
-		counter++;
+		counter = counter + a / b;
+		a = a % b;
+		swap(a, b);
 	}
 	return counter;
 }
 
 int main(int argc, char* argv[])
 {
-	long long length;
-	long long width;
+	__int64 a;
+	__int64 b;
 	ifstream input("input.txt");
 	ofstream output("output.txt");
-	input >> length >> width;
-	output << getAmountRectangles(width, length);
+	input >> a >> b;
+	output << getAmountRectangles(a, b);
 }
-
