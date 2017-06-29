@@ -7,7 +7,7 @@ void ProcessChain(double quantityOfChain, double lengthOfChain, double quantityO
 	double counter = 0;
 	double quantityOfDevidedChain = quantityOfChain;
 	double max = lengthOfChain;
-	double min = lengthOfChain / quantityOfPieces;
+	double min = lengthOfChain;
 	while (quantityOfDevidedChain < resultQuantityOfChain)
 	{
 		quantityOfDevidedChain += quantityOfPieces - 1;
